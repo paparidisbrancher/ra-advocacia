@@ -14,6 +14,7 @@
 <meta property="og:url" content="https://paparidisbrancher.github.io/ra-advocacia/">
 <meta property="og:image" content="https://paparidisbrancher.github.io/ra-advocacia/assets/img/og-image.jpg">
 <meta name="theme-color" content="#8C4A3C">
+<script>document.documentElement.classList.add("js")</script>
 <link rel="icon" href="assets/img/logo-monograma-terracota.png" type="image/png">
 <link rel="preload" href="assets/fonts/lora.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/site.css">
@@ -26,10 +27,10 @@
       <img src="assets/img/logo-monograma-terracota.png" alt="" width="696" height="408">
       <span>RA Advocacia</span>
     </a>
-    <details class="menu">
-      <summary>Menu</summary>
-      <nav aria-label="Principal"><ul><li><a href="index.html#escritorio">O escritório</a></li><li><a href="index.html#areas">Áreas de atuação</a></li><li><a href="index.html#equipe">Equipe</a></li><li><a href="index.html#conteudos">Conteúdos</a></li><li><a href="index.html#contato">Contato</a></li></ul></nav>
-    </details>
+    <nav class="menu" aria-label="Principal">
+      <button class="menu-botao" type="button" aria-expanded="false" aria-controls="menu-lista">Menu</button>
+      <ul id="menu-lista"><li><a href="index.html#escritorio">O escritório</a></li><li><a href="index.html#areas">Áreas de atuação</a></li><li><a href="index.html#equipe">Equipe</a></li><li><a href="index.html#conteudos">Conteúdos</a></li><li><a href="index.html#contato">Contato</a></li></ul>
+    </nav>
   </div>
 </header>
 <main id="conteudo">
@@ -156,7 +157,7 @@
         <p class="status" id="form-status" role="status" aria-live="polite"></p>
       </form>
       <div class="dados">
-        <a class="botao" href="https://wa.me/5535998871336?text=Ol%C3%A1%2C%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20o%20atendimento.">Conversar pelo WhatsApp</a>
+        <a class="botao secundario" href="https://wa.me/5535998871336?text=Ol%C3%A1%2C%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20o%20atendimento.">Conversar pelo WhatsApp</a>
         <dl>
           <dt>Telefone e WhatsApp</dt>
           <dd><a href="tel:+5535998871336">(35) 99887-1336</a> <span class="pendente">confirmar</span></dd>

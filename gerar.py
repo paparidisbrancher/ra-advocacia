@@ -195,10 +195,10 @@ def topo(p, atual=""):
       <img src="{p}assets/img/logo-monograma-terracota.png" alt="" width="696" height="408">
       <span>RA Advocacia</span>
     </a>
-    <details class="menu">
-      <summary>Menu</summary>
-      <nav aria-label="Principal"><ul>{itens}</ul></nav>
-    </details>
+    <nav class="menu" aria-label="Principal">
+      <button class="menu-botao" type="button" aria-expanded="false" aria-controls="menu-lista">Menu</button>
+      <ul id="menu-lista">{itens}</ul>
+    </nav>
   </div>
 </header>"""
 
@@ -249,6 +249,7 @@ def pagina(caminho, titulo, descricao, corpo, atual="", noindex=False):
 <meta property="og:url" content="{url}">
 <meta property="og:image" content="{DOMINIO}/assets/img/og-image.jpg">
 <meta name="theme-color" content="#8C4A3C">
+<script>document.documentElement.classList.add("js")</script>
 <link rel="icon" href="{p}assets/img/logo-monograma-terracota.png" type="image/png">
 <link rel="preload" href="{p}assets/fonts/lora.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="{p}assets/site.css">
@@ -446,7 +447,7 @@ def pagina_inicio():
         <p class="status" id="form-status" role="status" aria-live="polite"></p>
       </form>
       <div class="dados">
-        <a class="botao" href="{WHATS}">Conversar pelo WhatsApp</a>
+        <a class="botao secundario" href="{WHATS}">Conversar pelo WhatsApp</a>
         <dl>
           <dt>Telefone e WhatsApp</dt>
           <dd><a href="tel:+5535998871336">{TELEFONE}</a> <span class="pendente">confirmar</span></dd>

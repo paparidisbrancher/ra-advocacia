@@ -1,10 +1,17 @@
 // RA Advocacia — menu do celular e formulário de contato (abre o WhatsApp com a mensagem pronta).
 const WHATSAPP = "5535998871336"; // (35) 99887-1336 — confirmar com o escritório
 
-// Fecha o menu do celular ao escolher um link.
-document.querySelectorAll(".menu a").forEach((a) =>
-  a.addEventListener("click", () => a.closest("details")?.removeAttribute("open")),
-);
+// Menu do celular: abre e fecha pelo botão; fecha com Esc, ao escolher um link ou ao tocar fora.
+const menuBotao = document.querySelector(".menu-botao");
+if (menuBotao) {
+  const abrir = (sim) => menuBotao.setAttribute("aria-expanded", String(sim));
+  menuBotao.addEventListener("click", () => abrir(menuBotao.getAttribute("aria-expanded") !== "true"));
+  document.querySelectorAll(".menu a").forEach((a) => a.addEventListener("click", () => abrir(false)));
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && menuBotao.getAttribute("aria-expanded") === "true") { abrir(false); menuBotao.focus(); }
+  });
+  document.addEventListener("click", (e) => { if (!e.target.closest(".menu")) abrir(false); });
+}
 
 const form = document.getElementById("form-contato");
 if (form) {

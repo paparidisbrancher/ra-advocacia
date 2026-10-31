@@ -328,8 +328,8 @@ def pagina_inicio():
 <section class="hero" aria-labelledby="titulo">
   <div class="contido">
     <figure>
-      <img src="assets/img/escritorio-hero.webp" width="840" height="1330" fetchpriority="high"
-        alt="Marina e a Dra. Renata Maria em frente à parede com o monograma RA, na recepção do escritório">
+      <img src="assets/img/socias-hero.webp" width="722" height="1280" fetchpriority="high"
+        alt="As sócias Dra. Renata Maria e Dra. Ana Cristina Faria, lado a lado, no escritório">
     </figure>
     <div class="hero-painel">
       <h1 id="titulo">Orientação previdenciária com atenção à sua história</h1>
@@ -381,14 +381,14 @@ def pagina_inicio():
     <h2 id="equipe-titulo">Equipe</h2>
     <div class="socias">
       <article class="pessoa">
-        <img src="assets/img/renata-maria.webp" width="700" height="700" loading="lazy" alt="Retrato da Dra. Renata Maria">
+        <img src="assets/img/renata-maria.webp" width="512" height="512" loading="lazy" alt="Dra. Renata Maria à mesa de trabalho no escritório">
         <h3>Dra. Renata Maria</h3>
         <p class="funcao">Advogada e sócia. <span class="pendente">OAB/MG nº a confirmar</span></p>
         <p>Advoga há mais de 10 anos. Tem um carinho especial pelo trabalhador rural e diz que persistência é a palavra que a define como pessoa e como advogada.</p>
         <p><a href="https://www.instagram.com/renatamaria.adv/">Instagram @renatamaria.adv</a></p>
       </article>
       <article class="pessoa">
-        <img src="assets/img/ana-faria.webp" width="700" height="700" loading="lazy" alt="Retrato da Dra. Ana Faria">
+        <img src="assets/img/ana-faria.webp" width="800" height="800" loading="lazy" alt="Dra. Ana Cristina Faria à mesa de trabalho no escritório">
         <h3>Dra. Ana Cristina Faria</h3>
         <p class="funcao">Advogada e sócia. <span class="pendente">OAB/MG nº a confirmar</span></p>
         <p>Atua na área jurídica há mais de 5 anos e é sócia do escritório. Diz que advogar é a sua paixão.</p>

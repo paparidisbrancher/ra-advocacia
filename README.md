@@ -22,7 +22,10 @@ Isso regrava todos os `.html`, o `sitemap.xml` e o `robots.txt`. Estilos em `ass
 - [ ] Razão social, CNPJ e inscrição da sociedade na OAB/MG.
 - [ ] Números de OAB/MG da Dra. Renata Maria e da Dra. Ana Cristina Faria.
 - [ ] Nome completo e função de Marina e Mylena (não identificar estagiária como advogada).
-- [ ] Endereço atual (os posts mostram endereços diferentes), horário, e-mail, telefone/WhatsApp.
+- [x] Endereço, telefone/WhatsApp, nomes completos das sócias e acessibilidade: tirados do perfil no Google Empresas em 31/10/2026.
+- [ ] Horário completo (o Google só mostra "abre às 9h" e "fechado aos sábados") e e-mail.
+- [ ] Perfil no Google: o site cadastrado (rajadvocaciaespecializada.com.br) não existe mais; trocar pelo novo endereço quando publicar.
+- [ ] Fotos do Google com a marca antiga "Alves & Faria" ficaram fora do site de propósito.
 - [ ] Confirmar as cinco áreas de atuação e revisar juridicamente os textos das áreas e artigos.
 - [ ] Dados estruturados (JSON-LD de escritório) só depois dos dados acima confirmados.
 - [ ] Política de privacidade: empresa de hospedagem, prazo de guarda de registros, data da versão.

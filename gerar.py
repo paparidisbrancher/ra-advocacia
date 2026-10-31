@@ -12,6 +12,7 @@ DOMINIO = "https://paparidisbrancher.github.io/ra-advocacia"  # trocar pelo dom�
 DEMO = True  # apresentação ao cliente: fora dos buscadores. Mudar para False ao publicar de verdade.
 WHATS = "https://wa.me/5535998871336?text=" + "Ol%C3%A1%2C%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20o%20atendimento."
 TELEFONE = "(35) 99887-1336"
+MAPA = "https://maps.google.com/?cid=9352116726334135630"  # perfil da RA Advocacia no Google Empresas
 
 MENU = [("index.html#escritorio", "O escritório"), ("index.html#areas", "Áreas de atuação"),
         ("index.html#equipe", "Equipe"), ("index.html#conteudos", "Conteúdos"), ("index.html#contato", "Contato")]
@@ -219,6 +220,7 @@ def rodape(p):
       <h2>Contato</h2>
       <ul>
         <li><a href="{WHATS}">WhatsApp {TELEFONE}</a></li>
+        <li><a href="{MAPA}">R. Antônio Ancleto Rezende, 19, apto. 203, Centro, Alpinópolis, MG</a></li>
         <li><a href="https://www.instagram.com/renatamaria.adv/">Instagram da Dra. Renata Maria</a></li>
         <li><a href="https://www.instagram.com/anafaria.adv/">Instagram da Dra. Ana Faria</a></li>
         <li><a href="{p}privacidade.html">Política de privacidade</a></li>
@@ -346,8 +348,8 @@ def pagina_inicio():
   <div class="contido">
     <div class="dois">
       <div class="foto-canto">
-        <img src="assets/img/escritorio-equipe.webp" width="900" height="1035" loading="lazy"
-          alt="A Dra. Ana Faria, sentada, e Mylena, em pé, na recepção do escritório em Alpinópolis">
+        <img src="assets/img/escritorio-socias.webp" width="900" height="1035" loading="lazy"
+          alt="A Dra. Ana Cristina e a Dra. Renata Maria na recepção do escritório, diante da parede com a logo RA Advocacia">
       </div>
       <div>
         <h2 id="escritorio-titulo">Um escritório em Alpinópolis para cuidar da sua questão com o INSS</h2>
@@ -382,14 +384,14 @@ def pagina_inicio():
     <div class="socias">
       <article class="pessoa">
         <img src="assets/img/renata-maria.webp" width="512" height="512" loading="lazy" alt="Dra. Renata Maria à mesa de trabalho no escritório">
-        <h3>Dra. Renata Maria</h3>
+        <h3>Dra. Renata Maria Alves Silva</h3>
         <p class="funcao">Advogada e sócia. <span class="pendente">OAB/MG nº a confirmar</span></p>
         <p>Advoga há mais de 10 anos. Tem um carinho especial pelo trabalhador rural e diz que persistência é a palavra que a define como pessoa e como advogada.</p>
         <p><a href="https://www.instagram.com/renatamaria.adv/">Instagram @renatamaria.adv</a></p>
       </article>
       <article class="pessoa">
         <img src="assets/img/ana-faria.webp" width="800" height="800" loading="lazy" alt="Dra. Ana Cristina Faria à mesa de trabalho no escritório">
-        <h3>Dra. Ana Cristina Faria</h3>
+        <h3>Dra. Ana Cristina Faria de Lima</h3>
         <p class="funcao">Advogada e sócia. <span class="pendente">OAB/MG nº a confirmar</span></p>
         <p>Atua na área jurídica há mais de 5 anos e é sócia do escritório. Diz que advogar é a sua paixão.</p>
         <p><a href="https://www.instagram.com/anafaria.adv/">Instagram @anafaria.adv</a></p>
@@ -450,11 +452,13 @@ def pagina_inicio():
         <a class="botao secundario" href="{WHATS}">Conversar pelo WhatsApp</a>
         <dl>
           <dt>Telefone e WhatsApp</dt>
-          <dd><a href="tel:+5535998871336">{TELEFONE}</a> <span class="pendente">confirmar</span></dd>
+          <dd><a href="tel:+5535998871336">{TELEFONE}</a></dd>
           <dt>Endereço</dt>
-          <dd><span class="pendente">[ENDEREÇO A CONFIRMAR]</span><br>Alpinópolis, MG</dd>
+          <dd>R. Antônio Ancleto Rezende, 19, apto. 203, Centro<br>Alpinópolis, MG, 37940-000<br><a href="{MAPA}">Ver no Google Maps</a></dd>
+          <dt>Acessibilidade</dt>
+          <dd>Estacionamento acessível para cadeira de rodas</dd>
           <dt>Horário de atendimento</dt>
-          <dd><span class="pendente">[HORÁRIO A CONFIRMAR]</span></dd>
+          <dd>A partir das 9h. Fechado aos sábados.<br><span class="pendente">Dias e horário de fechamento a confirmar</span></dd>
           <dt>E-mail</dt>
           <dd><span class="pendente">[E-MAIL A CONFIRMAR]</span></dd>
           <dt>Instagram</dt>
@@ -480,7 +484,7 @@ def pagina_privacidade():
   <article class="texto">
     <p class="intro">Esta política explica quais dados este site trata, para quê e quais são os seus direitos, conforme a LGPD (Lei Geral de Proteção de Dados, Lei nº 13.709/2018).</p>
     <h2>Quem é o responsável</h2>
-    <p>RA Advocacia, Alpinópolis, MG. <span class="pendente">Razão social, CNPJ e endereço a confirmar.</span></p>
+    <p>RA Advocacia, R. Antônio Ancleto Rezende, 19, apto. 203, Centro, Alpinópolis, MG, 37940-000. <span class="pendente">Razão social e CNPJ a confirmar.</span></p>
     <h2>O formulário de contato</h2>
     <p>O formulário pede apenas o seu nome, a forma de retorno preferida e uma mensagem curta. Esses dados não são enviados nem guardados por este site: ao tocar em “Enviar pelo WhatsApp”, o seu próprio aparelho abre o WhatsApp com a mensagem pronta, e você decide se envia.</p>
     <p>Se você enviar a mensagem, o escritório usará os dados apenas para responder ao seu contato e, se for o caso, iniciar o atendimento. O WhatsApp é um serviço da Meta e tem política de privacidade própria.</p>

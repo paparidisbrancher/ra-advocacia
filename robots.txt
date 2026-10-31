@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /
+Sitemap: https://paparidisbrancher.github.io/ra-advocacia/sitemap.xml

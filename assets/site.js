@@ -1,4 +1,4 @@
-// RA Advocacia — menu do celular e formulário de contato (abre o WhatsApp com a mensagem pronta).
+// RA Advocacia: menu do celular e formulário de contato (abre o WhatsApp com a mensagem pronta).
 const WHATSAPP = "5535998871336"; // (35) 99887-1336 — confirmar com o escritório
 
 // Menu do celular: abre e fecha pelo botão; fecha com Esc, ao escolher um link ou ao tocar fora.
@@ -55,6 +55,6 @@ if (form) {
     if (janela) janela.opener = null;
     status.textContent = janela
       ? "Abrimos o WhatsApp com sua mensagem. Confira o texto e toque em enviar para concluir."
-      : "O navegador bloqueou a nova janela. Use o botão “Conversar pelo WhatsApp” ao lado.";
+      : "O navegador bloqueou a nova janela. Use o botão “Conversar pelo WhatsApp” nesta página.";
   });
 }

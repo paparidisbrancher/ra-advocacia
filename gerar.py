@@ -13,6 +13,7 @@ DEMO = True  # apresentação ao cliente: fora dos buscadores. Mudar para False 
 WHATS = "https://wa.me/5535998871336?text=" + "Ol%C3%A1%2C%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20o%20atendimento."
 TELEFONE = "(35) 99887-1336"
 MAPA = "https://maps.google.com/?cid=9352116726334135630"  # perfil da RA Advocacia no Google Empresas
+ENDERECO = "R. Antônio Ancleto Rezende, 19, apto. 203, Centro"  # como está no Google Empresas
 
 MENU = [("index.html#escritorio", "O escritório"), ("index.html#areas", "Áreas de atuação"),
         ("index.html#equipe", "Equipe"), ("index.html#conteudos", "Conteúdos"), ("index.html#contato", "Contato")]
@@ -206,23 +207,23 @@ def topo(p, atual=""):
 
 def rodape(p):
     return f"""<footer class="rodape">
-  <div class="contido">
-    <div>
+  <div class="contido grade">
+    <div class="rodape-marca">
       <img src="{p}assets/img/logo-completa-claro.png" alt="RA Advocacia" width="1153" height="600" loading="lazy">
-      <p>Atuação em Direito Previdenciário em Alpinópolis, Minas Gerais.</p>
+      <p>Direito Previdenciário em Alpinópolis, Minas Gerais.</p>
       <p><span class="pendente">Razão social, CNPJ e inscrição da sociedade na OAB/MG a confirmar</span></p>
     </div>
-    <div>
+    <nav class="rodape-nav" aria-label="Rodapé">
       <h2>Navegação</h2>
       <ul>{"".join(f'<li><a href="{p}{h}">{t}</a></li>' for h, t in MENU)}</ul>
-    </div>
-    <div>
+    </nav>
+    <div class="rodape-contato">
       <h2>Contato</h2>
       <ul>
         <li><a href="{WHATS}">WhatsApp {TELEFONE}</a></li>
-        <li><a href="{MAPA}">R. Antônio Ancleto Rezende, 19, apto. 203, Centro, Alpinópolis, MG</a></li>
+        <li><a href="{MAPA}">{ENDERECO}, Alpinópolis, MG</a></li>
         <li><a href="https://www.instagram.com/renatamaria.adv/">Instagram da Dra. Renata Maria</a></li>
-        <li><a href="https://www.instagram.com/anafaria.adv/">Instagram da Dra. Ana Faria</a></li>
+        <li><a href="https://www.instagram.com/anafaria.adv/">Instagram da Dra. Ana Cristina</a></li>
         <li><a href="{p}privacidade.html">Política de privacidade</a></li>
       </ul>
     </div>
@@ -253,7 +254,8 @@ def pagina(caminho, titulo, descricao, corpo, atual="", noindex=False):
 <meta name="theme-color" content="#8C4A3C">
 <script>document.documentElement.classList.add("js")</script>
 <link rel="icon" href="{p}assets/img/logo-monograma-terracota.png" type="image/png">
-<link rel="preload" href="{p}assets/fonts/lora.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{p}assets/fonts/newsreader.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{p}assets/fonts/atkinson-hyperlegible-next.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="{p}assets/site.css">
 </head>
 <body>
@@ -276,17 +278,36 @@ AVISO_REVISAO = """<div class="revisao" role="note"><p><strong>Texto em revisão
 CHAMADA = f"""<section class="chamada" aria-labelledby="chamada-titulo">
   <h2 id="chamada-titulo">Quer conversar sobre o seu caso?</h2>
   <p>Cada situação depende dos seus documentos e da sua história. Fale com o escritório para entender os caminhos possíveis.</p>
-  <p><a href="{WHATS}">Conversar pelo WhatsApp</a> &nbsp; <a href="../index.html#contato">Ver outras formas de contato</a></p>
+  <div class="acoes">
+    <a class="botao claro" href="{WHATS}">Conversar pelo WhatsApp</a>
+    <a class="link-acao" href="../index.html#contato">Outras formas de contato</a>
+  </div>
 </section>"""
+
+# Coluna de atendimento das páginas internas (fica fixa ao rolar, no computador)
+LATERAL = f"""<aside class="lateral" aria-label="Atendimento">
+  <p class="lateral-titulo">Atendimento</p>
+  <p><a class="lateral-tel" href="tel:+5535998871336">{TELEFONE}</a></p>
+  <p><a href="{WHATS}">Conversar pelo WhatsApp</a></p>
+  <p>{ENDERECO}<br>Alpinópolis, MG<br><a href="{MAPA}">Ver no Google Maps</a></p>
+</aside>"""
+
+
+def cabeca_interna(trilha, titulo, intro="", meta=""):
+    intro = f'\n  <p class="intro">{intro}</p>' if intro else ""
+    meta = f'\n  <p class="meta">{meta}</p>' if meta else ""
+    return f"""<div class="cabeca-interna"><div class="contido">
+  <p class="trilha">{trilha}</p>
+  <h1>{titulo}</h1>{intro}{meta}
+</div></div>"""
 
 
 def pagina_area(a):
     perguntas = "".join(f"<details><summary>{q}</summary><p>{r}</p></details>" for q, r in a["faq"])
-    corpo = f"""<div class="cabeca-interna"><div class="contido">
-  <p class="trilha"><a href="../index.html">Início</a> / <a href="../index.html#areas">Áreas de atuação</a></p>
-  <h1>{a["titulo"]}</h1>
-</div></div>
-<div class="secao"><div class="contido">
+    trilha = '<a href="../index.html">Início</a> / <a href="../index.html#areas">Áreas de atuação</a>'
+    corpo = f"""{cabeca_interna(trilha, a["titulo"], a["resumo"])}
+<div class="interna"><div class="contido grade">
+  {LATERAL}
   {AVISO_REVISAO}
   <article class="texto">
     {a["corpo"]}
@@ -300,12 +321,11 @@ def pagina_area(a):
 
 def pagina_artigo(a):
     fontes = "".join(f'<li><a href="{u}">{t}</a></li>' for t, u in a["fontes"])
-    corpo = f"""<div class="cabeca-interna"><div class="contido">
-  <p class="trilha"><a href="../index.html">Início</a> / <a href="../index.html#conteudos">Conteúdos</a></p>
-  <h1>{a["titulo"]}</h1>
-  <p class="meta">Autoria: <span class="pendente">a definir</span>. Publicado em: <span class="pendente">a definir</span>. Revisão jurídica: <span class="pendente">pendente</span>.</p>
-</div></div>
-<div class="secao"><div class="contido">
+    trilha = '<a href="../index.html">Início</a> / <a href="../index.html#conteudos">Conteúdos</a>'
+    meta = 'Autoria: <span class="pendente">a definir</span>. Publicado em: <span class="pendente">a definir</span>. Revisão jurídica: <span class="pendente">pendente</span>.'
+    corpo = f"""{cabeca_interna(trilha, a["titulo"], meta=meta)}
+<div class="interna"><div class="contido grade">
+  {LATERAL}
   <div class="revisao" role="note"><p><strong>Rascunho.</strong> Este texto aguarda revisão do escritório e ainda não aparece nos buscadores.</p></div>
   <article class="texto">
     {a["corpo"]}
@@ -319,112 +339,126 @@ def pagina_artigo(a):
 
 def pagina_inicio():
     areas = "".join(
-        f'<li><a href="areas/{a["slug"]}.html"><h3>{a["titulo"]}</h3><p>{a["resumo"]}</p><span class="ler">Saiba mais</span></a></li>'
+        f'<li><a href="areas/{a["slug"]}.html"><h3>{a["titulo"]}</h3><p>{a["resumo"]}</p><span class="seta" aria-hidden="true"></span></a></li>'
         for a in AREAS
     )
     artigos = "".join(
-        f'<li><span class="selo">Em revisão</span><h3><a href="conteudos/{a["slug"]}.html">{a["titulo"]}</a></h3><p>{a["resumo"]}</p></li>'
-        for a in ARTIGOS
+        f'<article class="artigo{" destaque" if i == 0 else ""}"><p class="estado">Rascunho em revisão</p>'
+        f'<h3><a href="conteudos/{a["slug"]}.html">{a["titulo"]}</a></h3><p>{a["resumo"]}</p></article>'
+        for i, a in enumerate(ARTIGOS)
     )
     corpo = f"""
 <section class="hero" aria-labelledby="titulo">
-  <div class="contido">
-    <figure>
-      <img src="assets/img/socias-hero.webp" width="722" height="1280" fetchpriority="high"
-        alt="As sócias Dra. Renata Maria e Dra. Ana Cristina Faria, lado a lado, no escritório">
-    </figure>
-    <div class="hero-painel">
-      <h1 id="titulo">Orientação previdenciária com atenção à sua história</h1>
-      <p>Atuação em Direito Previdenciário para trabalhadores rurais e pessoas que buscam compreender seus direitos junto ao INSS.</p>
-      <div class="hero-links">
-        <a href="#escritorio">Conheça o escritório</a>
-        <a href="#contato">Informações de contato</a>
+  <div class="contido grade hero-texto">
+    <h1 id="titulo">Advocacia previdenciária em Alpinópolis</h1>
+    <div class="hero-apoio">
+      <p>Aposentadoria rural, auxílio-doença, auxílio-acidente e benefícios para idosos e pessoas com deficiência. Atendimento no escritório ou pelo WhatsApp.</p>
+      <div class="acoes">
+        <a class="botao" href="{WHATS}">Conversar pelo WhatsApp</a>
+        <a class="link-acao" href="#areas">Áreas de atuação</a>
       </div>
     </div>
   </div>
+  <figure class="hero-foto">
+    <picture>
+      <source media="(max-width: 700px)" srcset="assets/img/topo-celular.webp" width="800" height="1000">
+      <img src="assets/img/topo-1600.webp" srcset="assets/img/topo-1600.webp 1600w, assets/img/topo-2560.webp 2560w" sizes="100vw"
+        width="1600" height="700" fetchpriority="high"
+        alt="As duas sócias, lado a lado e sorrindo, diante da parede com a logo RA Advocacia">
+    </picture>
+    <figcaption class="legenda">Dra. Ana Cristina Faria de Lima e Dra. Renata Maria Alves Silva, sócias, na recepção do escritório.</figcaption>
+  </figure>
 </section>
 
 <section class="secao" id="escritorio" aria-labelledby="escritorio-titulo">
-  <div class="contido">
-    <div class="dois">
-      <div class="foto-canto">
-        <img src="assets/img/escritorio-socias.webp" width="900" height="1035" loading="lazy"
-          alt="A Dra. Ana Cristina e a Dra. Renata Maria na recepção do escritório, diante da parede com a logo RA Advocacia">
-      </div>
-      <div>
-        <h2 id="escritorio-titulo">Um escritório em Alpinópolis para cuidar da sua questão com o INSS</h2>
-        <p>A RA Advocacia atua em Direito Previdenciário e tem escritório físico em Alpinópolis, Minas Gerais. Atendemos trabalhadores rurais, pessoas idosas, pessoas com deficiência e famílias que precisam entender seus direitos junto ao INSS (Instituto Nacional do Seguro Social).</p>
-        <ul class="compromissos">
-          <li><strong>Escuta</strong>Começamos ouvindo a sua história, sem pressa e sem palavras difíceis.</li>
-          <li><strong>Respeito</strong>Explicamos cada passo com clareza, para você entender o que está sendo feito.</li>
-          <li><strong>Análise individual</strong>Cada caso tem documentos e requisitos próprios. Por isso, não damos respostas prontas.</li>
-        </ul>
-      </div>
+  <div class="contido grade">
+    <div class="escritorio-texto">
+      <h2 id="escritorio-titulo">O escritório. <span class="tom">Em Alpinópolis, para quem precisa resolver uma questão com o INSS.</span></h2>
+      <p>A RA Advocacia atua em Direito Previdenciário. Recebemos trabalhadores rurais, pessoas idosas, pessoas com deficiência e famílias que precisam entender seus direitos junto ao INSS (Instituto Nacional do Seguro Social).</p>
+      <p>O trabalho começa por ouvir a sua história, sem pressa e sem palavras difíceis. Como cada caso tem documentos e requisitos próprios, a orientação vem depois de analisar a sua situação.</p>
+      <h3>Como é o primeiro atendimento</h3>
+      <ol class="passos">
+        <li><span><strong>Você conta o que está acontecendo</strong>, no escritório ou pelo WhatsApp.</span></li>
+        <li><span><strong>Olhamos os documentos que você já tem</strong> e dizemos o que mais pode ser necessário.</span></li>
+        <li><span><strong>Explicamos os caminhos possíveis</strong> para você decidir com tranquilidade.</span></li>
+      </ol>
     </div>
-    <h3 style="margin-top:clamp(56px,8vw,96px)">Como funciona o atendimento</h3>
-    <ol class="passos">
-      <li><strong>Conversa inicial.</strong> Você conta o que está acontecendo, no escritório ou pelo WhatsApp.</li>
-      <li><strong>Análise dos documentos.</strong> Avaliamos o que você já tem e indicamos o que mais pode ser necessário.</li>
-      <li><strong>Orientação.</strong> Explicamos os caminhos possíveis para você decidir com tranquilidade.</li>
-    </ol>
+    <figure class="escritorio-foto">
+      <img src="assets/img/escritorio-trabalho.webp" width="800" height="1000" loading="lazy"
+        alt="Dra. Renata Maria sentada à mesa e Dra. Ana Cristina em pé ao lado, no escritório">
+    </figure>
   </div>
 </section>
 
-<section class="secao areia" id="areas" aria-labelledby="areas-titulo">
-  <div class="contido">
-    <h2 id="areas-titulo">Áreas de atuação</h2>
-    <p class="intro">Em todas elas, o primeiro passo é analisar a sua situação e os seus documentos. <span class="pendente">Lista a confirmar com o escritório.</span></p>
+<section class="secao areas-secao" id="areas" aria-labelledby="areas-titulo">
+  <div class="contido grade">
+    <div class="areas-cabeca">
+      <h2 id="areas-titulo">Áreas de atuação</h2>
+      <p class="intro">Em todas elas, o primeiro passo é analisar a sua situação e os seus documentos.</p>
+      <p><span class="pendente">Lista a confirmar com o escritório.</span></p>
+    </div>
     <ul class="areas">{areas}</ul>
   </div>
 </section>
 
 <section class="secao" id="equipe" aria-labelledby="equipe-titulo">
-  <div class="contido">
-    <h2 id="equipe-titulo">Equipe</h2>
-    <div class="socias">
-      <article class="pessoa">
-        <img src="assets/img/renata-maria.webp" width="512" height="512" loading="lazy" alt="Dra. Renata Maria à mesa de trabalho no escritório">
-        <h3>Dra. Renata Maria Alves Silva</h3>
-        <p class="funcao">Advogada e sócia. <span class="pendente">OAB/MG nº a confirmar</span></p>
-        <p>Advoga há mais de 10 anos. Tem um carinho especial pelo trabalhador rural e diz que persistência é a palavra que a define como pessoa e como advogada.</p>
-        <p><a href="https://www.instagram.com/renatamaria.adv/">Instagram @renatamaria.adv</a></p>
-      </article>
-      <article class="pessoa">
-        <img src="assets/img/ana-faria.webp" width="800" height="800" loading="lazy" alt="Dra. Ana Cristina Faria à mesa de trabalho no escritório">
-        <h3>Dra. Ana Cristina Faria de Lima</h3>
-        <p class="funcao">Advogada e sócia. <span class="pendente">OAB/MG nº a confirmar</span></p>
-        <p>Atua na área jurídica há mais de 5 anos e é sócia do escritório. Diz que advogar é a sua paixão.</p>
-        <p><a href="https://www.instagram.com/anafaria.adv/">Instagram @anafaria.adv</a></p>
-      </article>
+  <div class="contido grade">
+    <div class="equipe-cabeca">
+      <h2 id="equipe-titulo">Equipe. <span class="tom">As sócias e quem recebe você no escritório.</span></h2>
     </div>
-    <div class="equipe-apoio">
-      <article>
-        <img src="assets/img/marina.webp" width="440" height="530" loading="lazy" alt="Retrato de Marina">
-        <h3>Marina</h3>
-        <p><span class="pendente">Nome completo e função a confirmar</span></p>
-      </article>
-      <article>
-        <img src="assets/img/mylena.webp" width="440" height="530" loading="lazy" alt="Retrato de Mylena">
-        <h3>Mylena</h3>
-        <p><span class="pendente">Nome completo e função a confirmar</span></p>
-      </article>
+    <article class="socia">
+      <img class="retrato" src="assets/img/renata-maria.webp" width="800" height="1000" loading="lazy" alt="Dra. Renata Maria à mesa de trabalho no escritório">
+      <h3>Dra. Renata Maria Alves Silva</h3>
+      <p class="funcao">Advogada e sócia. <span class="pendente">OAB/MG nº a confirmar</span></p>
+      <p>Advoga há mais de 10 anos e atua em Direito Previdenciário.</p>
+      <blockquote class="citacao"><p>“Amo o que faço e tenho um carinho especial pelo trabalhador rural.”</p></blockquote>
+      <p><a href="https://www.instagram.com/renatamaria.adv/">Instagram @renatamaria.adv</a></p>
+    </article>
+    <article class="socia">
+      <img class="retrato" src="assets/img/ana-faria.webp" width="800" height="1000" loading="lazy" alt="Dra. Ana Cristina Faria à mesa de trabalho no escritório">
+      <h3>Dra. Ana Cristina Faria de Lima</h3>
+      <p class="funcao">Advogada e sócia. <span class="pendente">OAB/MG nº a confirmar</span></p>
+      <p>Atua na área jurídica há mais de 5 anos e se dedica a benefícios do INSS, como BPC, auxílio-doença e auxílio-acidente.</p>
+      <blockquote class="citacao"><p>“Nunca tive dúvidas: advogar é minha paixão.”</p></blockquote>
+      <p><a href="https://www.instagram.com/anafaria.adv/">Instagram @anafaria.adv</a></p>
+    </article>
+    <div class="apoio grade">
+      <h3>Também no escritório</h3>
+      <ul>
+        <li><img src="assets/img/marina.webp" width="440" height="530" loading="lazy" alt="Retrato de Marina"><strong>Marina</strong><p><span class="pendente">Nome completo e função a confirmar</span></p></li>
+        <li><img src="assets/img/mylena.webp" width="440" height="530" loading="lazy" alt="Retrato de Mylena"><strong>Mylena</strong><p><span class="pendente">Nome completo e função a confirmar</span></p></li>
+      </ul>
     </div>
   </div>
 </section>
 
-<section class="secao" id="conteudos" aria-labelledby="conteudos-titulo" style="padding-top:0">
-  <div class="contido">
-    <h2 id="conteudos-titulo">Conteúdos</h2>
-    <p class="intro">Textos curtos para ajudar você a entender seus direitos. Eles passam por revisão do escritório antes de serem publicados.</p>
-    <ul class="artigos">{artigos}</ul>
+<section class="secao conteudos" id="conteudos" aria-labelledby="conteudos-titulo">
+  <div class="contido grade">
+    <div class="conteudos-cabeca">
+      <h2 id="conteudos-titulo">Conteúdos</h2>
+      <p class="intro">Textos curtos para ajudar você a entender seus direitos. Eles passam por revisão do escritório antes de serem publicados.</p>
+    </div>
+    {artigos}
   </div>
 </section>
 
-<section class="secao areia" id="contato" aria-labelledby="contato-titulo">
-  <div class="contido">
-    <h2 id="contato-titulo">Contato</h2>
-    <p class="intro">Conte em poucas palavras o que está acontecendo. Respondemos pelo WhatsApp ou por ligação, como você preferir.</p>
-    <div class="contato-grade">
+<section class="secao contato" id="contato" aria-labelledby="contato-titulo">
+  <div class="contido grade">
+    <div class="contato-dados">
+      <h2 id="contato-titulo">Contato</h2>
+      <p class="intro">Conte em poucas palavras o que está acontecendo. Respondemos pelo WhatsApp ou por ligação, como você preferir.</p>
+      <a class="telefone" href="tel:+5535998871336">{TELEFONE}</a>
+      <div><a class="botao claro" href="{WHATS}">Conversar pelo WhatsApp</a></div>
+      <dl class="dados">
+        <div><dt>Endereço</dt><dd>{ENDERECO}<br>Alpinópolis, MG, 37940-000<br><a href="{MAPA}">Ver no Google Maps</a></dd></div>
+        <div><dt>Horário de atendimento</dt><dd>A partir das 9h. Fechado aos sábados.<br><span class="pendente">Dias e horário de fechamento a confirmar</span></dd></div>
+        <div><dt>Acessibilidade</dt><dd>Estacionamento acessível para cadeira de rodas</dd></div>
+        <div><dt>E-mail</dt><dd><span class="pendente">E-mail a confirmar</span></dd></div>
+        <div><dt>Instagram</dt><dd><a href="https://www.instagram.com/renatamaria.adv/">@renatamaria.adv</a> e <a href="https://www.instagram.com/anafaria.adv/">@anafaria.adv</a></dd></div>
+      </dl>
+    </div>
+    <div class="cartao">
+      <h3>Escreva sua mensagem</h3>
       <form id="form-contato" novalidate aria-describedby="aviso-form">
         <div>
           <label for="nome">Seu nome</label>
@@ -448,23 +482,6 @@ def pagina_inicio():
         <div><button class="botao" type="submit">Enviar pelo WhatsApp</button></div>
         <p class="status" id="form-status" role="status" aria-live="polite"></p>
       </form>
-      <div class="dados">
-        <a class="botao secundario" href="{WHATS}">Conversar pelo WhatsApp</a>
-        <dl>
-          <dt>Telefone e WhatsApp</dt>
-          <dd><a href="tel:+5535998871336">{TELEFONE}</a></dd>
-          <dt>Endereço</dt>
-          <dd>R. Antônio Ancleto Rezende, 19, apto. 203, Centro<br>Alpinópolis, MG, 37940-000<br><a href="{MAPA}">Ver no Google Maps</a></dd>
-          <dt>Acessibilidade</dt>
-          <dd>Estacionamento acessível para cadeira de rodas</dd>
-          <dt>Horário de atendimento</dt>
-          <dd>A partir das 9h. Fechado aos sábados.<br><span class="pendente">Dias e horário de fechamento a confirmar</span></dd>
-          <dt>E-mail</dt>
-          <dd><span class="pendente">[E-MAIL A CONFIRMAR]</span></dd>
-          <dt>Instagram</dt>
-          <dd><a href="https://www.instagram.com/renatamaria.adv/">@renatamaria.adv</a><br><a href="https://www.instagram.com/anafaria.adv/">@anafaria.adv</a></dd>
-        </dl>
-      </div>
     </div>
   </div>
 </section>"""
@@ -474,17 +491,14 @@ def pagina_inicio():
 
 
 def pagina_privacidade():
-    corpo = """<div class="cabeca-interna"><div class="contido">
-  <p class="trilha"><a href="index.html">Início</a></p>
-  <h1>Política de privacidade</h1>
-  <p class="meta">Última atualização: <span class="pendente">data a definir na publicação</span></p>
-</div></div>
-<div class="secao"><div class="contido">
+    meta = 'Última atualização: <span class="pendente">data a definir na publicação</span>'
+    corpo = f"""{cabeca_interna('<a href="index.html">Início</a>', "Política de privacidade", meta=meta)}
+<div class="interna"><div class="contido grade">
   <div class="revisao" role="note"><p><strong>Texto em revisão pelo escritório.</strong> Ele descreve como este site funciona hoje e deve ser atualizado se algo mudar.</p></div>
   <article class="texto">
     <p class="intro">Esta política explica quais dados este site trata, para quê e quais são os seus direitos, conforme a LGPD (Lei Geral de Proteção de Dados, Lei nº 13.709/2018).</p>
     <h2>Quem é o responsável</h2>
-    <p>RA Advocacia, R. Antônio Ancleto Rezende, 19, apto. 203, Centro, Alpinópolis, MG, 37940-000. <span class="pendente">Razão social e CNPJ a confirmar.</span></p>
+    <p>RA Advocacia, {ENDERECO}, Alpinópolis, MG, 37940-000. <span class="pendente">Razão social e CNPJ a confirmar.</span></p>
     <h2>O formulário de contato</h2>
     <p>O formulário pede apenas o seu nome, a forma de retorno preferida e uma mensagem curta. Esses dados não são enviados nem guardados por este site: ao tocar em “Enviar pelo WhatsApp”, o seu próprio aparelho abre o WhatsApp com a mensagem pronta, e você decide se envia.</p>
     <p>Se você enviar a mensagem, o escritório usará os dados apenas para responder ao seu contato e, se for o caso, iniciar o atendimento. O WhatsApp é um serviço da Meta e tem política de privacidade própria.</p>

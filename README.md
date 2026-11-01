@@ -10,9 +10,16 @@ Textos, áreas de atuação, artigos, topo e rodapé ficam em `gerar.py`. Depois
 
 Isso regrava todos os `.html`, o `sitemap.xml` e o `robots.txt`. Estilos em `assets/site.css`; formulário e menu em `assets/site.js`.
 
-- Trechos com `class="pendente"` (fundo pêssego tracejado) são dados a confirmar. Ao confirmar, troque o texto e remova a classe.
+- Trechos com `class="pendente"` (fundo pêssego sublinhado) são dados a confirmar. Ao confirmar, troque o texto e remova a classe.
 - Artigos em `conteudos/` saem com `noindex` e selo "Rascunho". Depois da revisão, mude `noindex=True` para `False` em `pagina_artigo` e preencha autoria e datas.
 - Formulário: não envia nada a servidor. Monta a mensagem e abre o WhatsApp do escritório (número em `assets/site.js` e `gerar.py`).
+
+## Visual
+
+- Títulos em Newsreader e texto em Atkinson Hyperlegible Next, feita pelo Braille Institute para leitores com baixa visão (o zero cortado é do desenho dela). As duas são OFL e ficam em `assets/fonts`, sem depender do Google.
+- Tudo com cantos retos. O canto arredondado das artes do Instagram aparece só nos painéis de contato e na foto do escritório.
+- Fotos: o topo (`topo-*.webp`) e a do escritório saíram do perfil no Google Empresas. Os retratos das sócias são do ensaio. Marina e Mylena foram recortadas das artes do Instagram e precisam de foto própria.
+- Referências: sites de escritórios com menção honrosa no Awwwards (IMK Avocats, Setia Law, Hafnia Law) e The Law Practice. Os princípios foram adaptados, sem copiar layout nem texto.
 
 ## Antes de publicar (pendências do escritório)
 

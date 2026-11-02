@@ -448,7 +448,7 @@ def pagina_inicio():
       <h2 id="contato-titulo">Contato</h2>
       <p class="intro">Conte em poucas palavras o que está acontecendo. Respondemos pelo WhatsApp ou por ligação, como você preferir.</p>
       <a class="telefone" href="tel:+5535998871336">{TELEFONE}</a>
-      <div><a class="botao claro" href="{WHATS}">Conversar pelo WhatsApp</a></div>
+      <div><a class="botao contorno" href="{WHATS}">Conversar pelo WhatsApp</a></div>
       <dl class="dados">
         <div><dt>Endereço</dt><dd>{ENDERECO}<br>Alpinópolis, MG, 37940-000<br><a href="{MAPA}">Ver no Google Maps</a></dd></div>
         <div><dt>Horário de atendimento</dt><dd>A partir das 9h. Fechado aos sábados.<br><span class="pendente">Dias e horário de fechamento a confirmar</span></dd></div>

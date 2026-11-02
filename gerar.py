@@ -426,7 +426,7 @@ def pagina_inicio():
       <h3>Também no escritório</h3>
       <ul>
         <li><img src="assets/img/marina.webp" width="620" height="747" loading="lazy" alt="Retrato da Dra. Marina Lima"><strong>Dra. Marina Lima</strong><p>Advogada. <span class="pendente">OAB/MG nº a confirmar</span></p></li>
-        <li><img src="assets/img/mylena.webp" width="520" height="626" loading="lazy" alt="Retrato de Mylena"><strong>Mylena</strong><p>Estudante de Direito e estagiária. <span class="pendente">Sobrenome a confirmar</span></p></li>
+        <li><img src="assets/img/mylena.webp" width="488" height="588" loading="lazy" alt="Retrato de Mylena"><strong>Mylena</strong><p>Estudante de Direito e estagiária. <span class="pendente">Sobrenome a confirmar</span></p></li>
       </ul>
     </div>
   </div>

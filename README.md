@@ -37,3 +37,8 @@ Isso regrava todos os `.html`, o `sitemap.xml` e o `robots.txt`. Estilos em `ass
 - [ ] Dados estruturados (JSON-LD de escritório) só depois dos dados acima confirmados.
 - [ ] Política de privacidade: empresa de hospedagem, prazo de guarda de registros, data da versão.
 - [ ] Revisão final do escritório quanto ao Provimento 205/2021 da OAB.
+
+## Atualização de 02/11/2026 (Instagram com login)
+
+- Funções confirmadas pelas legendas do Instagram (posts DUWW-zHkvhC, DUWWdN7Ero2, Dau4mllxeq9): Dra. Marina Lima é advogada; Mylena é estudante de Direito e estagiária. Retratos delas refeitos em resolução maior.
+- Seção "Vídeos" com 6 reels da @renatamaria.adv em `videos/` (720p, só baixam ao dar play). Temas escolhidos sem promessa de resultado.

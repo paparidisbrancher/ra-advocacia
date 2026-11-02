@@ -58,3 +58,6 @@ if (form) {
       : "O navegador bloqueou a nova janela. Use o botão “Conversar pelo WhatsApp” nesta página.";
   });
 }
+
+// Um vídeo por vez
+document.addEventListener('play', (e) => document.querySelectorAll('video').forEach((v) => { if (v !== e.target) v.pause(); }), true);

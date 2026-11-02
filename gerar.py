@@ -425,8 +425,8 @@ def pagina_inicio():
     <div class="apoio grade">
       <h3>Também no escritório</h3>
       <ul>
-        <li><img src="assets/img/marina.webp" width="440" height="530" loading="lazy" alt="Retrato de Marina"><strong>Marina</strong><p><span class="pendente">Nome completo e função a confirmar</span></p></li>
-        <li><img src="assets/img/mylena.webp" width="440" height="530" loading="lazy" alt="Retrato de Mylena"><strong>Mylena</strong><p><span class="pendente">Nome completo e função a confirmar</span></p></li>
+        <li><img src="assets/img/marina.webp" width="620" height="747" loading="lazy" alt="Retrato da Dra. Marina Lima"><strong>Dra. Marina Lima</strong><p>Advogada. <span class="pendente">OAB/MG nº a confirmar</span></p></li>
+        <li><img src="assets/img/mylena.webp" width="520" height="626" loading="lazy" alt="Retrato de Mylena"><strong>Mylena</strong><p>Estudante de Direito e estagiária. <span class="pendente">Sobrenome a confirmar</span></p></li>
       </ul>
     </div>
   </div>
@@ -439,6 +439,40 @@ def pagina_inicio():
       <p class="intro">Textos curtos para ajudar você a entender seus direitos. Eles passam por revisão do escritório antes de serem publicados.</p>
     </div>
     {artigos}
+  </div>
+</section>
+
+<section class="secao videos" id="videos" aria-labelledby="videos-titulo">
+  <div class="contido">
+    <h2 id="videos-titulo">Vídeos. <span class="tom">Dúvidas comuns sobre o INSS, explicadas pelas advogadas.</span></h2>
+    <p class="intro">Informação geral: cada caso depende da análise dos documentos.</p>
+    <ul class="videos-lista" role="region" tabindex="0" aria-label="Vídeos da RA Advocacia">
+      <li><figure>
+        <video controls preload="none" playsinline poster="videos/Dci83AGx6vk.webp" width="720" height="1280" aria-label="Trabalha na roça e ficou doente ou sofreu um acidente?"><source src="videos/Dci83AGx6vk.mp4" type="video/mp4"></video>
+        <figcaption>Trabalha na roça e ficou doente ou sofreu um acidente?<span>0:36 · <a href="https://www.instagram.com/reel/Dci83AGx6vk/">ver no Instagram</a></span></figcaption>
+      </figure></li>
+      <li><figure>
+        <video controls preload="none" playsinline poster="videos/DaDTSXyR6SL.webp" width="720" height="1280" aria-label="Quais são os requisitos do BPC-LOAS?"><source src="videos/DaDTSXyR6SL.mp4" type="video/mp4"></video>
+        <figcaption>Quais são os requisitos do BPC-LOAS?<span>0:42 · <a href="https://www.instagram.com/reel/DaDTSXyR6SL/">ver no Instagram</a></span></figcaption>
+      </figure></li>
+      <li><figure>
+        <video controls preload="none" playsinline poster="videos/DdZCKZXhK-j.webp" width="720" height="1280" aria-label="Aposentadoria rural com idade reduzida"><source src="videos/DdZCKZXhK-j.mp4" type="video/mp4"></video>
+        <figcaption>Aposentadoria rural com idade reduzida<span>0:37 · <a href="https://www.instagram.com/reel/DdZCKZXhK-j/">ver no Instagram</a></span></figcaption>
+      </figure></li>
+      <li><figure>
+        <video controls preload="none" playsinline poster="videos/DcQ61UfxA2l.webp" width="720" height="1280" aria-label="Sofreu um acidente e não trabalha mais como antes?"><source src="videos/DcQ61UfxA2l.mp4" type="video/mp4"></video>
+        <figcaption>Sofreu um acidente e não trabalha mais como antes?<span>0:32 · <a href="https://www.instagram.com/reel/DcQ61UfxA2l/">ver no Instagram</a></span></figcaption>
+      </figure></li>
+      <li><figure>
+        <video controls preload="none" playsinline poster="videos/DbTIGVfxCl_.webp" width="720" height="1280" aria-label="Burnout e ansiedade podem dar direito a benefício?"><source src="videos/DbTIGVfxCl_.mp4" type="video/mp4"></video>
+        <figcaption>Burnout e ansiedade podem dar direito a benefício?<span>0:40 · <a href="https://www.instagram.com/reel/DbTIGVfxCl_/">ver no Instagram</a></span></figcaption>
+      </figure></li>
+      <li><figure>
+        <video controls preload="none" playsinline poster="videos/DaNnFT-RJ3T.webp" width="720" height="1280" aria-label="Cuidado com golpes envolvendo o INSS"><source src="videos/DaNnFT-RJ3T.mp4" type="video/mp4"></video>
+        <figcaption>Cuidado com golpes envolvendo o INSS<span>0:57 · <a href="https://www.instagram.com/reel/DaNnFT-RJ3T/">ver no Instagram</a></span></figcaption>
+      </figure></li>
+    </ul>
+    <p><a href="https://www.instagram.com/renatamaria.adv/reels/">Todos os vídeos no Instagram</a></p>
   </div>
 </section>
 

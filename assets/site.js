@@ -61,3 +61,18 @@ if (form) {
 
 // Um vídeo por vez
 document.addEventListener('play', (e) => document.querySelectorAll('video').forEach((v) => { if (v !== e.target) v.pause(); }), true);
+
+// Atalho "Falar com o escritório": só aparece longe do topo e dos blocos que já mostram o contato.
+const fale = document.querySelector(".fale");
+if (fale) {
+  if ("IntersectionObserver" in window) {
+    const visiveis = new Set();
+    const obs = new IntersectionObserver((itens) => {
+      itens.forEach((i) => (i.isIntersecting ? visiveis.add(i.target) : visiveis.delete(i.target)));
+      fale.classList.toggle("visivel", visiveis.size === 0);
+    });
+    document.querySelectorAll(".hero-apoio, .cabeca-interna, #contato, .chamada, .lateral, .rodape").forEach((el) => obs.observe(el));
+  } else {
+    fale.classList.add("visivel");
+  }
+}

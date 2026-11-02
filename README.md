@@ -42,3 +42,11 @@ Isso regrava todos os `.html`, o `sitemap.xml` e o `robots.txt`. Estilos em `ass
 
 - Funções confirmadas pelas legendas do Instagram (posts DUWW-zHkvhC, DUWWdN7Ero2, Dau4mllxeq9): Dra. Marina Lima é advogada; Mylena é estudante de Direito e estagiária. Retratos delas refeitos em resolução maior.
 - Seção "Vídeos" com 6 reels da @renatamaria.adv em `videos/` (720p, só baixam ao dar play). Temas escolhidos sem promessa de resultado.
+
+## Revisão de 02/11/2026 (clareza e contato)
+
+- Botão fixo "Falar com o escritório" (canto inferior direito), que leva ao bloco de contato. Ele fica escondido no topo e perto dos blocos que já mostram o contato (seção Contato, chamada final, coluna lateral das páginas internas e rodapé). No computador, as páginas internas já têm a coluna lateral fixa, então ele não aparece ali.
+- Textos em linguagem mais simples: o topo diz quais benefícios e cita quem trabalha ou trabalhou na roça; o escritório explica o que é Direito Previdenciário; as áreas usam os nomes populares (auxílio-doença, aposentadoria por invalidez, BPC/LOAS); "qualidade de segurado" e "carência" foram explicadas.
+- Novas marcas `pendente`: região atendida (outras cidades), textos da equipe (tempo de atuação, citações e fotos) e seleção de vídeos.
+- [ ] Advogadas: aprovar os novos resumos das áreas e a explicação de qualidade de segurado e carência.
+- [ ] Informar se atendem outras cidades da região, além de Alpinópolis.

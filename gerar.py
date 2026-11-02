@@ -22,7 +22,7 @@ AREAS = [
     {
         "slug": "aposentadoria-rural",
         "titulo": "Aposentadoria do trabalhador rural",
-        "resumo": "Para quem trabalha ou trabalhou na roça, como empregado, diarista ou em regime de economia familiar.",
+        "resumo": "Para quem trabalha ou trabalhou na roça: empregado rural, diarista, boia&#8209;fria ou quem planta com a família.",
         "corpo": """
 <p class="intro">Quem vive do trabalho no campo tem regras próprias na Previdência Social. Em muitos casos, a aposentadoria pode ser pedida com idade menor do que a exigida de quem trabalha na cidade.</p>
 <h2>Para quem é</h2>
@@ -45,8 +45,8 @@ AREAS = [
     },
     {
         "slug": "beneficios-por-incapacidade",
-        "titulo": "Benefícios por incapacidade",
-        "resumo": "Quando uma doença ou lesão impede o trabalho, por um tempo ou de forma permanente.",
+        "titulo": "Auxílio-doença e aposentadoria por invalidez",
+        "resumo": "Hoje chamados de benefícios por incapacidade. Para quando uma doença ou lesão impede o trabalho, por um tempo ou de vez.",
         "corpo": """
 <p class="intro">Quando uma doença ou um acidente impede a pessoa de trabalhar, a Previdência Social prevê benefícios para garantir uma renda nesse período.</p>
 <h2>Os dois benefícios mais comuns</h2>
@@ -61,7 +61,7 @@ AREAS = [
   <li>exames, receitas e atestados, em ordem de data;</li>
   <li>documentos que mostrem a sua profissão e o que você faz no dia a dia do trabalho.</li>
 </ul>
-<p>Também é preciso verificar a qualidade de segurado e a carência, que são exigências ligadas às contribuições ou ao trabalho rural. Isso varia conforme o caso.</p>""",
+<p>Também é preciso verificar a qualidade de segurado (estar coberto pelo INSS quando a doença começou) e a carência (um número mínimo de meses de contribuição ou de trabalho rural, que em alguns casos é dispensado). Isso varia conforme o caso.</p>""",
         "faq": [
             ("A perícia negou, mas continuo sem conseguir trabalhar. O que fazer?", "Há caminhos para contestar a decisão, como recurso ao próprio INSS ou ação na Justiça. Os prazos são curtos, então procure orientação assim que receber a resposta."),
             ("Trabalhador rural também tem direito?", "Sim, o trabalhador rural pode ter direito, desde que comprove a atividade no campo e cumpra os demais requisitos."),
@@ -92,8 +92,8 @@ AREAS = [
     },
     {
         "slug": "bpc-loas",
-        "titulo": "BPC: Benefício de Prestação Continuada",
-        "resumo": "Para pessoas idosas ou com deficiência de famílias de baixa renda, mesmo sem contribuição ao INSS.",
+        "titulo": "BPC (LOAS) para idosos e pessoas com deficiência",
+        "resumo": "Um salário mínimo por mês para pessoas idosas ou com deficiência de famílias de baixa renda, mesmo sem ter contribuído para o INSS.",
         "corpo": """
 <p class="intro">O BPC (Benefício de Prestação Continuada), também conhecido como LOAS por causa da Lei Orgânica da Assistência Social, garante um salário mínimo por mês a pessoas idosas ou com deficiência que vivem em famílias de baixa renda.</p>
 <h2>O que é importante saber</h2>
@@ -263,6 +263,7 @@ def pagina(caminho, titulo, descricao, corpo, atual="", noindex=False):
 <main id="conteudo">
 {corpo}
 </main>
+<a class="fale" href="{p}index.html#contato">Falar com o escritório</a>
 {rodape(p)}
 </body>
 </html>
@@ -352,7 +353,7 @@ def pagina_inicio():
   <div class="contido grade hero-texto">
     <h1 id="titulo">Advocacia previdenciária em Alpinópolis</h1>
     <div class="hero-apoio">
-      <p>Aposentadoria rural, auxílio-doença, auxílio-acidente e benefícios para idosos e pessoas com deficiência. Atendimento no escritório ou pelo WhatsApp.</p>
+      <p>Orientação sobre aposentadoria, auxílios e outros benefícios do INSS, inclusive para quem trabalha ou trabalhou na roça. Atendimento no escritório, em Alpinópolis, ou pelo WhatsApp.</p>
       <div class="acoes">
         <a class="botao" href="{WHATS}">Conversar pelo WhatsApp</a>
         <a class="link-acao" href="#areas">Áreas de atuação</a>
@@ -374,7 +375,7 @@ def pagina_inicio():
   <div class="contido grade">
     <div class="escritorio-texto">
       <h2 id="escritorio-titulo">O escritório. <span class="tom">Em Alpinópolis, para quem precisa resolver uma questão com o INSS.</span></h2>
-      <p>A RA Advocacia atua em Direito Previdenciário. Recebemos trabalhadores rurais, pessoas idosas, pessoas com deficiência e famílias que precisam entender seus direitos junto ao INSS (Instituto Nacional do Seguro Social).</p>
+      <p>A RA Advocacia atua em Direito Previdenciário, a área que cuida dos benefícios do INSS: aposentadorias, auxílios e o BPC. Recebemos trabalhadores rurais, pessoas idosas, pessoas com deficiência e famílias que precisam entender seus direitos junto ao INSS (Instituto Nacional do Seguro Social).</p>
       <p>O trabalho começa por ouvir a sua história, sem pressa e sem palavras difíceis. Como cada caso tem documentos e requisitos próprios, a orientação vem depois de analisar a sua situação.</p>
       <h3>Como é o primeiro atendimento</h3>
       <ol class="passos">
@@ -405,6 +406,7 @@ def pagina_inicio():
   <div class="contido grade">
     <div class="equipe-cabeca">
       <h2 id="equipe-titulo">Equipe. <span class="tom">As sócias e quem recebe você no escritório.</span></h2>
+      <p><span class="pendente">Tempo de atuação, citações e fotos a aprovar por cada pessoa.</span></p>
     </div>
     <article class="socia">
       <img class="retrato" src="assets/img/renata-maria.webp" width="800" height="1000" loading="lazy" alt="Dra. Renata Maria à mesa de trabalho no escritório">
@@ -446,6 +448,7 @@ def pagina_inicio():
   <div class="contido">
     <h2 id="videos-titulo">Vídeos. <span class="tom">Dúvidas comuns sobre o INSS, explicadas pelas advogadas.</span></h2>
     <p class="intro">Informação geral: cada caso depende da análise dos documentos.</p>
+    <p><span class="pendente">Seleção de vídeos a aprovar pelas advogadas.</span></p>
     <ul class="videos-lista" role="region" tabindex="0" aria-label="Vídeos da RA Advocacia">
       <li><figure>
         <video controls preload="none" playsinline poster="videos/Dci83AGx6vk.webp" width="720" height="1280" aria-label="Trabalha na roça e ficou doente ou sofreu um acidente?"><source src="videos/Dci83AGx6vk.mp4" type="video/mp4"></video>
@@ -453,7 +456,7 @@ def pagina_inicio():
       </figure></li>
       <li><figure>
         <video controls preload="none" playsinline poster="videos/DaDTSXyR6SL.webp" width="720" height="1280" aria-label="Quais são os requisitos do BPC-LOAS?"><source src="videos/DaDTSXyR6SL.mp4" type="video/mp4"></video>
-        <figcaption>Quais são os requisitos do BPC-LOAS?<span>0:42 · <a href="https://www.instagram.com/reel/DaDTSXyR6SL/">ver no Instagram</a></span></figcaption>
+        <figcaption>Quais são os requisitos do BPC&#8209;LOAS?<span>0:42 · <a href="https://www.instagram.com/reel/DaDTSXyR6SL/">ver no Instagram</a></span></figcaption>
       </figure></li>
       <li><figure>
         <video controls preload="none" playsinline poster="videos/DdZCKZXhK-j.webp" width="720" height="1280" aria-label="Aposentadoria rural com idade reduzida"><source src="videos/DdZCKZXhK-j.mp4" type="video/mp4"></video>
@@ -486,6 +489,7 @@ def pagina_inicio():
       <dl class="dados">
         <div><dt>Endereço</dt><dd>{ENDERECO}<br>Alpinópolis, MG, 37940-000<br><a href="{MAPA}">Ver no Google Maps</a></dd></div>
         <div><dt>Horário de atendimento</dt><dd>A partir das 9h. Fechado aos sábados.<br><span class="pendente">Dias e horário de fechamento a confirmar</span></dd></div>
+        <div><dt>Região atendida</dt><dd>Alpinópolis (MG), no escritório ou pelo WhatsApp.<br><span class="pendente">Outras cidades da região a confirmar</span></dd></div>
         <div><dt>Acessibilidade</dt><dd>Estacionamento acessível para cadeira de rodas</dd></div>
         <div><dt>E-mail</dt><dd><span class="pendente">E-mail a confirmar</span></dd></div>
         <div><dt>Instagram</dt><dd><a href="https://www.instagram.com/renatamaria.adv/">@renatamaria.adv</a> e <a href="https://www.instagram.com/anafaria.adv/">@anafaria.adv</a></dd></div>

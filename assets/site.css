@@ -51,8 +51,12 @@ strong { font-weight: 700; }
 .pular:focus { top: 8px; }
 .pular:hover { color: var(--papel); }
 
-/* Dado a confirmar com o escritório: some quando a classe sai do HTML */
-.pendente { background: rgba(221, 174, 142, 0.32); box-shadow: inset 0 -1px 0 var(--terracota); padding: 0 0.2em; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+/* Dado a confirmar com o escritório: escondido por padrão; aparece ao abrir com ?revisao */
+html:not(.revisao) .pendente,
+html:not(.revisao) p:has(> .pendente:only-child),
+html:not(.revisao) div:has(> dd > .pendente:only-child),
+html:not(.revisao) br:has(+ .pendente) { display: none; }
+.revisao .pendente { background: rgba(221, 174, 142, 0.32); box-shadow: inset 0 -1px 0 var(--terracota); padding: 0 0.2em; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
 
 /* Botões e links de ação */
 .botao {

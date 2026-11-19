@@ -10,7 +10,7 @@ Textos, áreas de atuação, artigos, topo e rodapé ficam em `gerar.py`. Depois
 
 Isso regrava todos os `.html`, o `sitemap.xml` e o `robots.txt`. Estilos em `assets/site.css`; formulário e menu em `assets/site.js`.
 
-- Trechos com `class="pendente"` (fundo pêssego sublinhado) são dados a confirmar. Ao confirmar, troque o texto e remova a classe.
+- Trechos com `class="pendente"` são dados a confirmar. Por padrão ficam escondidos para a apresentação parecer pronta; para vê-los destacados (fundo pêssego sublinhado), abra o site com `?revisao` no fim do endereço. Ao confirmar, troque o texto e remova a classe.
 - Artigos em `conteudos/` saem com `noindex` e selo "Rascunho". Depois da revisão, mude `noindex=True` para `False` em `pagina_artigo` e preencha autoria e datas.
 - Formulário: não envia nada a servidor. Monta a mensagem e abre o WhatsApp do escritório (número em `assets/site.js` e `gerar.py`).
 

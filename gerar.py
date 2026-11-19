@@ -220,10 +220,10 @@ def rodape(p):
     <div class="rodape-contato">
       <h2>Contato</h2>
       <ul>
-        <li><a href="{WHATS}">WhatsApp {TELEFONE}</a></li>
-        <li><a href="{MAPA}">{ENDERECO}, Alpinópolis, MG</a></li>
-        <li><a href="https://www.instagram.com/renatamaria.adv/">Instagram da Dra. Renata Maria</a></li>
-        <li><a href="https://www.instagram.com/anafaria.adv/">Instagram da Dra. Ana Cristina</a></li>
+        <li><a href="{WHATS}" target="_blank" rel="noopener">WhatsApp {TELEFONE}</a></li>
+        <li><a href="{MAPA}" target="_blank" rel="noopener">{ENDERECO}, Alpinópolis, MG</a></li>
+        <li><a href="https://www.instagram.com/renatamaria.adv/" target="_blank" rel="noopener">Instagram da Dra. Renata Maria</a></li>
+        <li><a href="https://www.instagram.com/anafaria.adv/" target="_blank" rel="noopener">Instagram da Dra. Ana Cristina</a></li>
         <li><a href="{p}privacidade.html">Política de privacidade</a></li>
       </ul>
     </div>
@@ -252,7 +252,7 @@ def pagina(caminho, titulo, descricao, corpo, atual="", noindex=False):
 <meta property="og:url" content="{url}">
 <meta property="og:image" content="{DOMINIO}/assets/img/og-image.jpg">
 <meta name="theme-color" content="#8C4A3C">
-<script>document.documentElement.classList.add("js")</script>
+<script>document.documentElement.classList.add("js");if(/[?&]revisao\b/.test(location.search))document.documentElement.classList.add("revisao");</script>
 <link rel="icon" href="{p}assets/img/logo-monograma-terracota.png" type="image/png">
 <link rel="preload" href="{p}assets/fonts/newsreader.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="{p}assets/fonts/atkinson-hyperlegible-next.woff2" as="font" type="font/woff2" crossorigin>
@@ -280,7 +280,7 @@ CHAMADA = f"""<section class="chamada" aria-labelledby="chamada-titulo">
   <h2 id="chamada-titulo">Quer conversar sobre o seu caso?</h2>
   <p>Cada situação depende dos seus documentos e da sua história. Fale com o escritório para entender os caminhos possíveis.</p>
   <div class="acoes">
-    <a class="botao claro" href="{WHATS}">Conversar pelo WhatsApp</a>
+    <a class="botao claro" href="{WHATS}" target="_blank" rel="noopener">Conversar pelo WhatsApp</a>
     <a class="link-acao" href="../index.html#contato">Outras formas de contato</a>
   </div>
 </section>"""
@@ -289,8 +289,8 @@ CHAMADA = f"""<section class="chamada" aria-labelledby="chamada-titulo">
 LATERAL = f"""<aside class="lateral" aria-label="Atendimento">
   <p class="lateral-titulo">Atendimento</p>
   <p><a class="lateral-tel" href="tel:+5535998871336">{TELEFONE}</a></p>
-  <p><a href="{WHATS}">Conversar pelo WhatsApp</a></p>
-  <p>{ENDERECO}<br>Alpinópolis, MG<br><a href="{MAPA}">Ver no Google Maps</a></p>
+  <p><a href="{WHATS}" target="_blank" rel="noopener">Conversar pelo WhatsApp</a></p>
+  <p>{ENDERECO}<br>Alpinópolis, MG<br><a href="{MAPA}" target="_blank" rel="noopener">Ver no Google Maps</a></p>
 </aside>"""
 
 
@@ -321,7 +321,7 @@ def pagina_area(a):
 
 
 def pagina_artigo(a):
-    fontes = "".join(f'<li><a href="{u}">{t}</a></li>' for t, u in a["fontes"])
+    fontes = "".join(f'<li><a href="{u}" target="_blank" rel="noopener">{t}</a></li>' for t, u in a["fontes"])
     trilha = '<a href="../index.html">Início</a> / <a href="../index.html#conteudos">Conteúdos</a>'
     meta = 'Autoria: <span class="pendente">a definir</span>. Publicado em: <span class="pendente">a definir</span>. Revisão jurídica: <span class="pendente">pendente</span>.'
     corpo = f"""{cabeca_interna(trilha, a["titulo"], meta=meta)}
@@ -355,7 +355,7 @@ def pagina_inicio():
     <div class="hero-apoio">
       <p>Orientação sobre aposentadoria, auxílios e outros benefícios do INSS, inclusive para quem trabalha ou trabalhou na roça. Atendimento no escritório, em Alpinópolis, ou pelo WhatsApp.</p>
       <div class="acoes">
-        <a class="botao" href="{WHATS}">Conversar pelo WhatsApp</a>
+        <a class="botao" href="{WHATS}" target="_blank" rel="noopener">Conversar pelo WhatsApp</a>
         <a class="link-acao" href="#areas">Áreas de atuação</a>
       </div>
     </div>
@@ -414,7 +414,7 @@ def pagina_inicio():
       <p class="funcao">Advogada e sócia. <span class="pendente">OAB/MG nº a confirmar</span></p>
       <p>Advoga há mais de 10 anos e atua em Direito Previdenciário.</p>
       <blockquote class="citacao"><p>“Amo o que faço e tenho um carinho especial pelo trabalhador rural.”</p></blockquote>
-      <p><a href="https://www.instagram.com/renatamaria.adv/">Instagram @renatamaria.adv</a></p>
+      <p><a href="https://www.instagram.com/renatamaria.adv/" target="_blank" rel="noopener">Instagram @renatamaria.adv</a></p>
     </article>
     <article class="socia">
       <img class="retrato" src="assets/img/ana-faria.webp" width="800" height="1000" loading="lazy" alt="Dra. Ana Cristina Faria à mesa de trabalho no escritório">
@@ -422,7 +422,7 @@ def pagina_inicio():
       <p class="funcao">Advogada e sócia. <span class="pendente">OAB/MG nº a confirmar</span></p>
       <p>Atua na área jurídica há mais de 5 anos e se dedica a benefícios do INSS, como BPC, auxílio-doença e auxílio-acidente.</p>
       <blockquote class="citacao"><p>“Nunca tive dúvidas: advogar é minha paixão.”</p></blockquote>
-      <p><a href="https://www.instagram.com/anafaria.adv/">Instagram @anafaria.adv</a></p>
+      <p><a href="https://www.instagram.com/anafaria.adv/" target="_blank" rel="noopener">Instagram @anafaria.adv</a></p>
     </article>
     <div class="apoio grade">
       <h3>Também no escritório</h3>
@@ -452,30 +452,30 @@ def pagina_inicio():
     <ul class="videos-lista" role="region" tabindex="0" aria-label="Vídeos da RA Advocacia">
       <li><figure>
         <video controls preload="none" playsinline poster="videos/Dci83AGx6vk.webp" width="720" height="1280" aria-label="Trabalha na roça e ficou doente ou sofreu um acidente?"><source src="videos/Dci83AGx6vk.mp4" type="video/mp4"></video>
-        <figcaption>Trabalha na roça e ficou doente ou sofreu um acidente?<span>0:36 · <a href="https://www.instagram.com/reel/Dci83AGx6vk/">ver no Instagram</a></span></figcaption>
+        <figcaption>Trabalha na roça e ficou doente ou sofreu um acidente?<span>0:36 · <a href="https://www.instagram.com/reel/Dci83AGx6vk/" target="_blank" rel="noopener">ver no Instagram</a></span></figcaption>
       </figure></li>
       <li><figure>
         <video controls preload="none" playsinline poster="videos/DaDTSXyR6SL.webp" width="720" height="1280" aria-label="Quais são os requisitos do BPC-LOAS?"><source src="videos/DaDTSXyR6SL.mp4" type="video/mp4"></video>
-        <figcaption>Quais são os requisitos do BPC&#8209;LOAS?<span>0:42 · <a href="https://www.instagram.com/reel/DaDTSXyR6SL/">ver no Instagram</a></span></figcaption>
+        <figcaption>Quais são os requisitos do BPC&#8209;LOAS?<span>0:42 · <a href="https://www.instagram.com/reel/DaDTSXyR6SL/" target="_blank" rel="noopener">ver no Instagram</a></span></figcaption>
       </figure></li>
       <li><figure>
         <video controls preload="none" playsinline poster="videos/DdZCKZXhK-j.webp" width="720" height="1280" aria-label="Aposentadoria rural com idade reduzida"><source src="videos/DdZCKZXhK-j.mp4" type="video/mp4"></video>
-        <figcaption>Aposentadoria rural com idade reduzida<span>0:37 · <a href="https://www.instagram.com/reel/DdZCKZXhK-j/">ver no Instagram</a></span></figcaption>
+        <figcaption>Aposentadoria rural com idade reduzida<span>0:37 · <a href="https://www.instagram.com/reel/DdZCKZXhK-j/" target="_blank" rel="noopener">ver no Instagram</a></span></figcaption>
       </figure></li>
       <li><figure>
         <video controls preload="none" playsinline poster="videos/DcQ61UfxA2l.webp" width="720" height="1280" aria-label="Sofreu um acidente e não trabalha mais como antes?"><source src="videos/DcQ61UfxA2l.mp4" type="video/mp4"></video>
-        <figcaption>Sofreu um acidente e não trabalha mais como antes?<span>0:32 · <a href="https://www.instagram.com/reel/DcQ61UfxA2l/">ver no Instagram</a></span></figcaption>
+        <figcaption>Sofreu um acidente e não trabalha mais como antes?<span>0:32 · <a href="https://www.instagram.com/reel/DcQ61UfxA2l/" target="_blank" rel="noopener">ver no Instagram</a></span></figcaption>
       </figure></li>
       <li><figure>
         <video controls preload="none" playsinline poster="videos/DbTIGVfxCl_.webp" width="720" height="1280" aria-label="Burnout e ansiedade podem dar direito a benefício?"><source src="videos/DbTIGVfxCl_.mp4" type="video/mp4"></video>
-        <figcaption>Burnout e ansiedade podem dar direito a benefício?<span>0:40 · <a href="https://www.instagram.com/reel/DbTIGVfxCl_/">ver no Instagram</a></span></figcaption>
+        <figcaption>Burnout e ansiedade podem dar direito a benefício?<span>0:40 · <a href="https://www.instagram.com/reel/DbTIGVfxCl_/" target="_blank" rel="noopener">ver no Instagram</a></span></figcaption>
       </figure></li>
       <li><figure>
         <video controls preload="none" playsinline poster="videos/DaNnFT-RJ3T.webp" width="720" height="1280" aria-label="Cuidado com golpes envolvendo o INSS"><source src="videos/DaNnFT-RJ3T.mp4" type="video/mp4"></video>
-        <figcaption>Cuidado com golpes envolvendo o INSS<span>0:57 · <a href="https://www.instagram.com/reel/DaNnFT-RJ3T/">ver no Instagram</a></span></figcaption>
+        <figcaption>Cuidado com golpes envolvendo o INSS<span>0:57 · <a href="https://www.instagram.com/reel/DaNnFT-RJ3T/" target="_blank" rel="noopener">ver no Instagram</a></span></figcaption>
       </figure></li>
     </ul>
-    <p><a href="https://www.instagram.com/renatamaria.adv/reels/">Todos os vídeos no Instagram</a></p>
+    <p><a href="https://www.instagram.com/renatamaria.adv/reels/" target="_blank" rel="noopener">Todos os vídeos no Instagram</a></p>
   </div>
 </section>
 
@@ -485,14 +485,14 @@ def pagina_inicio():
       <h2 id="contato-titulo">Contato</h2>
       <p class="intro">Conte em poucas palavras o que está acontecendo. Respondemos pelo WhatsApp ou por ligação, como você preferir.</p>
       <a class="telefone" href="tel:+5535998871336">{TELEFONE}</a>
-      <div><a class="botao contorno" href="{WHATS}">Conversar pelo WhatsApp</a></div>
+      <div><a class="botao contorno" href="{WHATS}" target="_blank" rel="noopener">Conversar pelo WhatsApp</a></div>
       <dl class="dados">
-        <div><dt>Endereço</dt><dd>{ENDERECO}<br>Alpinópolis, MG, 37940-000<br><a href="{MAPA}">Ver no Google Maps</a></dd></div>
+        <div><dt>Endereço</dt><dd>{ENDERECO}<br>Alpinópolis, MG, 37940-000<br><a href="{MAPA}" target="_blank" rel="noopener">Ver no Google Maps</a></dd></div>
         <div><dt>Horário de atendimento</dt><dd>A partir das 9h. Fechado aos sábados.<br><span class="pendente">Dias e horário de fechamento a confirmar</span></dd></div>
         <div><dt>Região atendida</dt><dd>Alpinópolis (MG), no escritório ou pelo WhatsApp.<br><span class="pendente">Outras cidades da região a confirmar</span></dd></div>
         <div><dt>Acessibilidade</dt><dd>Estacionamento acessível para cadeira de rodas</dd></div>
         <div><dt>E-mail</dt><dd><span class="pendente">E-mail a confirmar</span></dd></div>
-        <div><dt>Instagram</dt><dd><a href="https://www.instagram.com/renatamaria.adv/">@renatamaria.adv</a> e <a href="https://www.instagram.com/anafaria.adv/">@anafaria.adv</a></dd></div>
+        <div><dt>Instagram</dt><dd><a href="https://www.instagram.com/renatamaria.adv/" target="_blank" rel="noopener">@renatamaria.adv</a> e <a href="https://www.instagram.com/anafaria.adv/" target="_blank" rel="noopener">@anafaria.adv</a></dd></div>
       </dl>
     </div>
     <div class="cartao">
@@ -555,8 +555,20 @@ def pagina_privacidade():
                   "Como o site da RA Advocacia trata dados pessoais.", corpo)
 
 
+def pagina_404():
+    corpo = f"""{cabeca_interna('<a href="index.html">Início</a>', "Página não encontrada", "O endereço pode ter mudado ou ter sido digitado com algum erro.")}
+<div class="interna"><div class="contido grade">
+  <article class="texto">
+    <p>Volte para a página inicial para conhecer as áreas de atuação em Direito Previdenciário ou entrar em contato com o escritório.</p>
+    <p><a class="botao" href="index.html">Voltar para o início</a></p>
+  </article>
+</div></div>"""
+    return pagina("404.html", "Página não encontrada | RA Advocacia",
+                  "Página não encontrada no site da RA Advocacia.", corpo, noindex=True)
+
+
 if __name__ == "__main__":
-    paginas = [pagina_inicio(), pagina_privacidade(), *map(pagina_area, AREAS), *map(pagina_artigo, ARTIGOS)]
+    paginas = [pagina_inicio(), pagina_privacidade(), pagina_404(), *map(pagina_area, AREAS), *map(pagina_artigo, ARTIGOS)]
     urls = "".join(
         f"  <url><loc>{DOMINIO}/{c.replace('index.html', '')}</loc></url>\n" for c, noindex in paginas if not noindex
     )
